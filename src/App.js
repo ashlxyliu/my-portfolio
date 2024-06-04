@@ -56,12 +56,12 @@ const Home = () => {
   return (
     <div>
       <header>
-        <div className="logo">A &</div>
+        <div className="logo"><Link to="/">A &</Link></div>
         <div className="nav-search">
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Closet</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">Closet</Link></li>
               <li><a href="#" onClick={toggleSearch}>Search</a></li>
             </ul>
           </nav>
