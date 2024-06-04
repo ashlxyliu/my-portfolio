@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Libre Bodoni';
+  src: url('fonts/LibreBodoni-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Libre Bodoni';
+  src: url('fonts/LibreBodoni-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 700;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Libre Bodoni', serif;
+}
