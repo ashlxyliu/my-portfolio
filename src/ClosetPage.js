@@ -10,13 +10,27 @@ const ClosetPage = () => {
   };
 
   const handleFetchImage = async () => {
-    const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=YOUR_API_KEY&cx=YOUR_CX&q=${link}&searchType=image`);
-    const data = await response.json();
-    const imageUrl = data.items[0]?.link;
-    if (imageUrl) {
-      setImages([...images, imageUrl]);
-    } else {
-      alert('No image found for the provided link.');
+    const apiKey = 'AIzaSyCzqeJ9LdmrtzhekV3o2q3nVbek_Lq3zkU';
+    const cx = 'e42b8d47d24c24964';
+
+    try {
+      const query = encodeURIComponent(link);
+      console.log(`Fetching image for query: ${query}`);
+      const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${query}&searchType=image`);
+      const data = await response.json();
+      console.log('API Response:', data);
+
+      if (data.items && data.items.length > 0) {
+        const imageUrl = data.items[0].link;
+        console.log('Image URL:', imageUrl);
+        setImages([...images, imageUrl]);
+      } else {
+        console.warn('No image found for the provided link.');
+        alert('No image found for the provided link.');
+      }
+    } catch (error) {
+      console.error('Error fetching the image:', error);
+      alert('An error occurred while fetching the image.');
     }
   };
 
