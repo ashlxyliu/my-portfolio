@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import BrandPage from './BrandPage';
+import ClosetPage from './ClosetPage';
 
 const brands = [
   {
@@ -61,7 +62,7 @@ const Home = () => {
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/">Closet</Link></li>
+              <li><Link to="/closet">Closet</Link></li>
               <li><a href="#" onClick={toggleSearch}>Search</a></li>
             </ul>
           </nav>
@@ -129,6 +130,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/closet" element={<ClosetPage />} />
         <Route path="/brand/:url" element={<BrandPage />} />
       </Routes>
     </Router>
@@ -136,3 +138,4 @@ const App = () => {
 };
 
 export default App;
+
