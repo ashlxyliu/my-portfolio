@@ -128,11 +128,13 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/closet" element={<ClosetPage />} />
-        <Route path="/brand/:url" element={<BrandPage />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/closet" element={<ClosetPage />} />
+          <Route path="/brand/:url" element={<BrandPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 };
