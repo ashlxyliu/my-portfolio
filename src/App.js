@@ -20,7 +20,7 @@ const brands = [
     logo: 'https://www.zadig-et-voltaire.com/favicon.ico',
     url: 'https://www.zadig-et-voltaire.com'
   },
-  // Add more brands here
+  // add more brands here
 ];
 
 const Home = () => {

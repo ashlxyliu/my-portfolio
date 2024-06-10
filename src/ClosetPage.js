@@ -15,22 +15,19 @@ const ClosetPage = () => {
 
     try {
       const query = encodeURIComponent(link);
-      console.log(`Fetching image for query: ${query}`);
       const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${query}&searchType=image`);
       const data = await response.json();
       console.log('API Response:', data);
 
       if (data.items && data.items.length > 0) {
-        const imageUrl = data.items[0].link;
-        console.log('Image URL:', imageUrl);
-        setImages([...images, imageUrl]);
+        const imageUrls = data.items.map(item => item.link);
+        setImages(imageUrls);
       } else {
-        console.warn('No image found for the provided link.');
-        alert('No image found for the provided link.');
+        alert('No images found for the provided link.');
       }
     } catch (error) {
-      console.error('Error fetching the image:', error);
-      alert('An error occurred while fetching the image.');
+      console.error('Error fetching the images:', error);
+      alert('An error occurred while fetching the images.');
     }
   };
 
@@ -54,7 +51,7 @@ const ClosetPage = () => {
             value={link}
             onChange={handleLinkChange}
           />
-          <button onClick={handleFetchImage}>Fetch Image</button>
+          <button onClick={handleFetchImage}>Fetch Images</button>
         </div>
         <div className="image-gallery">
           {images.map((image, index) => (
